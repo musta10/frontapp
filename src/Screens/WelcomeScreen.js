@@ -32,7 +32,6 @@ const WelcomeScreen = ({ navigation }) => {
       >
         <Text style={[styles.buttonText, styles.buttonOutlineText]}>Crear cuenta</Text>
       </TouchableOpacity>
-    
       </View>
     </View>
   );
@@ -51,10 +50,11 @@ const styles = StyleSheet.create({
     margin: 15,
   },
  title: {
-    fontSize: 32,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#ccc',
     marginBottom: 50,
+    textAlign: 'center'
   },
   button: {
     backgroundColor: '#FFCB03',
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#000',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '500',
     textAlign: 'center'
   },
