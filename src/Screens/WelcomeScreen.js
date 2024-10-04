@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFCB03',
     paddingVertical: 15,
     paddingHorizontal: 40,
-    marginVertical: 15,
+    marginVertical: 20,
     borderRadius: 30,
     marginBottom: 20,
   },
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#000',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '500',
     textAlign: 'center'
   },
   buttonOutlineText: {
