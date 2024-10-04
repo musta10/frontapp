@@ -36,7 +36,7 @@ const RegisterScreen = ({ navigation }) => {
             onChangeText={handleChange('email')}
             onBlur={handleBlur('email')}
             value={values.email}
-            placeholder="Correo"
+            placeholder="Correo electrónico"
           />
           {touched.email && errors.email && <Text style={styles.error}>{errors.email}</Text>}
 
@@ -47,11 +47,11 @@ const RegisterScreen = ({ navigation }) => {
             onBlur={handleBlur('password')}
             value={values.password}
             secureTextEntry
-            placeholder="Password"
+            placeholder="Contraseña"
           />
           {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
 
-          <Button onPress={handleSubmit} title="Crear Cuenta" />
+          <Button onPress={handleSubmit} title="Crear cuenta" />
         </View>
       )}
     </Formik>

@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido a la Home Screen</Text>
+      <Text style={styles.title}>Bienvenido la bestia</Text>
       <Button title="Logout" onPress={handleLogout} />
     </View>
   );
