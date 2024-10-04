@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   button: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#FFCB03',
     paddingVertical: 15,
     paddingHorizontal: 40,
     marginVertical: 15,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   buttonOutline: {
     backgroundColor: '#fff',
-    borderColor: '#4CAF50',
+    borderColor: '#FFCB03',
     borderWidth: 2,
   },
   buttonText: {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   buttonOutlineText: {
-    color: '#4CAF50',
+    color: '#0569AB',
   },
   topImageContainer: {},
   topImage: {
