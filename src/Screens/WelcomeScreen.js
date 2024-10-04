@@ -18,7 +18,7 @@ const WelcomeScreen = ({ navigation }) => {
         />
       </View>
       <View style={styles.mainContainer}>
-        <Text style={styles.title}>Bienvenido La Bestia</Text>
+        <Text style={styles.title}>Bienvenido la bestia</Text>
         <Button title="Inicia sesión" onPress={() => navigation.navigate("Login")} />
         <Button
           title="Crear cuenta"
