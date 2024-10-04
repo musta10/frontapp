@@ -1,25 +1,30 @@
-// screens/LoginScreen.js
-import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from "react";
+import { View, Text, TextInput, Button,TouchableOpacity, StyleSheet } from "react-native";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = ({ navigation }) => {
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email('Email inválido').required('El email es requerido'),
-    password: Yup.string().required('La contraseña es requerida'),
+    email: Yup.string()
+      .email("Email inválido")
+      .required("El email es requerido"),
+    password: Yup.string().required("La contraseña es requerida"),
   });
 
   const handleLogin = async (values) => {
     try {
-      const user = JSON.parse(await AsyncStorage.getItem('user'));
+      const user = JSON.parse(await AsyncStorage.getItem("user"));
 
-      if (user && user.email === values.email && user.password === values.password) {
-        alert('Login exitoso!');
-        navigation.navigate('Home');
+      if (
+        user &&
+        user.email === values.email &&
+        user.password === values.password
+      ) {
+        alert("Login exitoso!");
+        navigation.navigate("Home");
       } else {
-        alert('Credenciales incorrectas');
+        alert("Credenciales incorrectas");
       }
     } catch (error) {
       console.log(error);
@@ -28,34 +33,50 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ email: "", password: "" }}
       validationSchema={validationSchema}
       onSubmit={(values) => handleLogin(values)}
     >
-      {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+      {({
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        values,
+        errors,
+        touched,
+      }) => (
         <View style={styles.container}>
           <Text>Ingresa un Correo electrónico</Text>
           <TextInput
             style={styles.input}
-            onChangeText={handleChange('email')}
-            onBlur={handleBlur('email')}
+            onChangeText={handleChange("email")}
+            onBlur={handleBlur("email")}
             value={values.email}
             placeholder="Correo electrónico"
+            keyboardType="email-address"
+            placeholderTextColor="#999"
           />
-          {touched.email && errors.email && <Text style={styles.error}>{errors.email}</Text>}
+          {touched.email && errors.email && (
+            <Text style={styles.error}>{errors.email}</Text>
+          )}
 
           <Text>Contraseña</Text>
           <TextInput
             style={styles.input}
-            onChangeText={handleChange('password')}
-            onBlur={handleBlur('password')}
+            onChangeText={handleChange("password")}
+            onBlur={handleBlur("password")}
             value={values.password}
             secureTextEntry
             placeholder="Contraseña"
+            placeholderTextColor="#999"
           />
-          {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
-
-          <Button onPress={handleSubmit} title="Iniciar sesión" />
+          {touched.password && errors.password && (
+            <Text style={styles.error}>{errors.password}</Text>
+          )}
+          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+            <Text style={styles.buttonText}>Iniciar sesión</Text>
+          </TouchableOpacity>
+        
         </View>
       )}
     </Formik>
@@ -64,17 +85,44 @@ const LoginScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#f5f7fa',
     padding: 20,
   },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#333',
+    textAlign: 'center',
+    marginBottom: 40,
+  },
   input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    height: 50,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    fontSize: 16,
     marginBottom: 10,
-    paddingLeft: 8,
+    borderColor: '#ddd',
+    borderWidth: 1,
+  },
+  button: {
+    backgroundColor: '#0569AB',
+    paddingVertical: 15,
+    borderRadius: 30,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
   },
   error: {
     color: 'red',
+    fontSize: 14,
+    marginBottom: 10,
   },
 });
 
