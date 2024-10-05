@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, TextInput, Button,TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -76,8 +83,13 @@ const LoginScreen = ({ navigation }) => {
           <TouchableOpacity style={styles.button} onPress={handleSubmit}>
             <Text style={styles.buttonText}>Iniciar sesión</Text>
           </TouchableOpacity>
-        
+          <TouchableOpacity onPress={()=> navigation.navigate('Register')} style={styles.registerLink}>
+            <Text style={styles.registerLinkText}>¿No tienes una cuenta?
+              <Text style={styles.registerLinkTextHighColor}>Regístrate</Text>
+            </Text>
+          </TouchableOpacity>
         </View>
+        
       )}
     </Formik>
   );
@@ -86,44 +98,56 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#f5f7fa',
+    justifyContent: "center",
+    backgroundColor: "#f5f7fa",
     padding: 20,
   },
   title: {
     fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
     marginBottom: 40,
   },
   input: {
     height: 50,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 16,
     marginBottom: 10,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderWidth: 1,
   },
   button: {
-    backgroundColor: '#0569AB',
+    backgroundColor: "#0569AB",
     paddingVertical: 15,
     borderRadius: 30,
     marginTop: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   error: {
-    color: 'red',
+    color: "red",
     fontSize: 14,
     marginBottom: 10,
   },
+  registerLink:{
+    alignSelf: 'center',
+    marginTop: 50 
+  },
+  registerLinkText: {
+    fontSize: 16,
+    color: '#7c808d'
+  },
+  registerLinkTextHighColor: {
+    fontSize: 16,
+    color: '#0569AB'
+  }
 });
 
 export default LoginScreen;

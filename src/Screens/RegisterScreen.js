@@ -68,7 +68,7 @@ const RegisterScreen = ({ navigation }) => {
             onBlur={handleBlur("password")}
             value={values.password}
             secureTextEntry
-            placeholder="Contraseña"
+            placeholder="Crea una contraseña"
             placeholderTextColor="#999"
           />
           {touched.password && errors.password && (
