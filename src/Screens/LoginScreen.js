@@ -80,7 +80,7 @@ const LoginScreen = ({ navigation }) => {
           {touched.password && errors.password && (
             <Text style={styles.error}>{errors.password}</Text>
           )}
-          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+          <TouchableOpacity style={styles.button} onPress={handleSubmit} >
             <Text style={styles.buttonText}>Iniciar sesión</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=> navigation.navigate('Register')} style={styles.registerLink}>

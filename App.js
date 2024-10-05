@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
