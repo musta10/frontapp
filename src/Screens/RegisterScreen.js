@@ -16,6 +16,8 @@ const RegisterScreen = ({ navigation }) => {
     email: Yup.string()
       .email("Email inválido")
       .required("El email es requerido"),
+      name: Yup.string()
+      .required("El nombre es obligatorio"),
     password: Yup.string()
       .min(6, "La contraseña debe tener al menos 6 caracteres")
       .required("La contraseña es requerida"),
@@ -34,7 +36,7 @@ const RegisterScreen = ({ navigation }) => {
 
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
+      initialValues={{ email: "", password: "", name: "" }}
       validationSchema={validationSchema}
       onSubmit={(values) => handleRegister(values)}
     >
@@ -47,6 +49,18 @@ const RegisterScreen = ({ navigation }) => {
         touched,
       }) => (
         <View style={styles.container}>
+          <Text>Nombre</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={handleChange("name")}
+            onBlur={handleBlur("name")}
+            value={values.name}
+            placeholder="Nombre de usuario"
+            placeholderTextColor="#999"
+          />
+          {touched.name && errors.name && (
+            <Text style={styles.error}>{errors.name}</Text>
+          )}
           <Text>Ingresa un Correo electrónico</Text>
           <TextInput
             style={styles.input}

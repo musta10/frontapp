@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     margin: 15,
   },
  title: {
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#ccc',
     marginBottom: 50,

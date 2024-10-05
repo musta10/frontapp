@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#333",
     textAlign: "center",
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   registerLinkTextHighColor: {
     fontSize: 16,
-    color: '#0569AB'
+    color: '#0569AB',
   }
 });
 
