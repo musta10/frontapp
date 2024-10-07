@@ -4,12 +4,45 @@ import { useContext } from "react";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Welcome from "./src/Screens/WelcomeScreen";
 import HomeScreen from "./src/Screens/HomeScreen";
 import LoginScreen from "./src/Screens/LoginScreen";
 import RegisterScreen from "./src/Screens/RegisterScreen";
+import ProfileScreen from "./src/Screens/ProfileScreen"
+import { Ionicons } from '@expo/vector-icons'; 
+
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const AppTabs = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+
+          if (route.name === 'Inicio') {
+            iconName = 'home';
+          } else if (route.name === 'Perfil') {
+            iconName = 'people-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: '#000000',
+        tabBarInactiveTintColor: '#ccc',
+      })}
+    >
+      <Tab.Screen name="Inicio" component={HomeScreen} />
+      <Tab.Screen name="Perfil" component={ProfileScreen} />
+    </Tab.Navigator>
+  );
+};
+
+
+
 
 const AppStack = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -20,7 +53,7 @@ const AppStack = () => {
         <>
           <Stack.Screen
             name="Home"
-            component={HomeScreen}
+            component={AppTabs}
             options={{ title: "Home", headerShown: false }}
           />
         </>
