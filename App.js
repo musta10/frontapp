@@ -27,7 +27,8 @@ const AppTabs = () => {
           if (route.name === 'Inicio') {
             iconName = 'home';
           } else if (route.name === 'Perfil') {
-            iconName = 'people-outline';
+            iconName = 'person';
+          
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
