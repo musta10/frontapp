@@ -20,6 +20,7 @@ const AppTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarStyle:{ backgroundColor: '#EBEDEF'},
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
@@ -32,7 +33,7 @@ const AppTabs = () => {
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#000000',
-        tabBarInactiveTintColor: '#ccc',
+        tabBarInactiveTintColor: 'grey',
       })}
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />
