@@ -34,7 +34,7 @@ const AppTabs = () => {
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#000000',
-        tabBarInactiveTintColor: 'grey',
+        tabBarInactiveTintColor: '#6FA7CB',
       })}
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />
