@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
         user.password === values.password
       ) {
         alert("Login exitoso!");
-        navigation.navigate("Home");
+        navigation.navigate("Welcome");
       } else {
         alert("Credenciales incorrectas");
       }
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   registerLink:{
     alignSelf: 'center',
-    marginTop: 50 
+    marginTop: 50
   },
   registerLinkText: {
     fontSize: 16,

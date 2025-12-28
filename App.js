@@ -20,19 +20,21 @@ const AppTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarStyle:{ backgroundColor: '#EBEDEF'},
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
           if (route.name === 'Inicio') {
             iconName = 'home';
           } else if (route.name === 'Perfil') {
-            iconName = 'people-outline';
+            iconName = 'person';
+          
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#000000',
-        tabBarInactiveTintColor: '#ccc',
+        tabBarInactiveTintColor: '#6FA7CB',
       })}
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />
