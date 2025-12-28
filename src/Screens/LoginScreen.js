@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
         user.password === values.password
       ) {
         alert("Login exitoso!");
-        navigation.navigate("Home");
+        navigation.navigate("Welcome");
       } else {
         alert("Credenciales incorrectas");
       }

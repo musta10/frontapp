@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const HomeScreen = ({ navigation }) => {
   const handleLogout = async () => {
     await AsyncStorage.removeItem('user');
-    navigation.navigate('Welcome');
+    navigation.navigate('Inicio');
   };
 
   return (
